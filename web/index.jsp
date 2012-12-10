@@ -14,29 +14,35 @@
         <title>Gerenciamento de Funcionarios</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <a href="cadastrar.jsp" class="btn btn-primary">Adicionar Funcionario</a>
-                <h2>Lista de Funcionários Cadastrados</h2>
-                <jsp:useBean id="dao" class="br.com.projeto.dao.FuncionarioDAO"/>
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <td>ID</td>
-                        <td>Nome</td>
-                        <td>Ações</td>
-                    </tr>
-                    <!-- percorre contatos montando as linhas da tabela -->
-                    <c:forEach var="funcionario" items="${dao.funcionarios}">
-                        <tr>
-                            <td>${funcionario.id}</td>
-                            <td>${funcionario.nome}</td>
-                            <td><a href="#">Editar</a> <a href="#">Apagar</a></td>
-                        </tr>
-                    </c:forEach>
+        <div class="container marketing">
+            <div class="">
+                <div class="row">
+                    <a href="cadastrar.jsp" class="btn btn-primary">Adicionar Funcionario</a>
+                    <h2>Lista de Funcionários Cadastrados</h2>
+                    <jsp:useBean id="dao" class="br.com.projeto.dao.FuncionarioDAO"/>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <td>ID</td>
+                                <td>Nome</td>
+                                <td>Ações</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="funcionario" items="${dao.funcionarios}">
+                                <tr>
+                                    <td>${funcionario.id}</td>
+                                    <td>${funcionario.nome}</td>
+                                    <td><a class="btn btn-primary" href="#">Editar</a> <a class="btn btn-danger" href="#">Apagar</a></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </table>
-    </div>
-</body>
+        </div>
+    </body>
 </html>
